@@ -1,0 +1,30 @@
+<!-- login.html -->
+
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Add Bootstrap classes to the form and container -->
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Smart Table Login</h5> <!-- Add a title -->
+            <form method="post">
+                {% csrf_token %}
+                
+                <!-- Apply Bootstrap form-group class to each form field -->
+                <div class="form-group">
+                    {{ form.nis.label_tag }}
+                    {{ form.nis }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                </div>
+
+                <!-- Use Bootstrap btn class for the submit button -->
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
