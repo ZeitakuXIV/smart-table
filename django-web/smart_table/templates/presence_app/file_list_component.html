@@ -1,0 +1,6 @@
+<!-- file_list_component.html -->
+<ul>
+    {% for file in files %}
+    <li><a href="{{ file.download_url }}">{{ file.name }}</a></li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,62 @@
+<!-- landing_page.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Table Landing Page</title>
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+        /* Center-align the header and navigation */
+        header, nav {
+            text-align: center;
+        }
+
+        /* Add padding to the header and navigation */
+        header {
+            padding: 20px;
+        }
+
+        /* Add margin to the main content */
+        main {
+            margin: 20px;
+        }
+
+        /* Center content both horizontally and vertically */
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set the height to 100% of the viewport height */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Center content using the "center-content" class -->
+        <div class="center-content">
+            <header>
+                <h1>Halo, {{user}}</h1>
+            </header>
+            <nav>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/presence_list">Presence List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/github">Files</a>
+                    </li>
+                </ul>
+            </nav>
+            <main>
+                <!-- Your landing page content here -->
+            </main>
+        </div>
+    </div>
+</body>
+</html>

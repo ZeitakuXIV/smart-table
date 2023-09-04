@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Repository Files</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .list-group-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .file-icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .file-name {
+            flex-grow: 1;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="bg-dark text-white text-center py-3">Files in Repository</h1>
+        <ul class="list-group">
+            {% for file in context.files %}
+                <li class="list-group-item">
+                    <span class="file-icon">
+                        {% if file.type == 'file' %}
+                            <i class="fas fa-file"></i>
+                        {% elif file.type == 'dir' %}
+                            <i class="fas fa-folder"></i>
+                        {% endif %}
+                    </span>
+                    <span class="file-name">
+                        {% if file.type == 'file' %}
+                            {% if context.subdirectory %}
+                                <a href="{% url 'display_github_file' context.subdirectory file.name %}">{{ file.name }}</a>
+                            {% else %}
+                                <a href="{% url 'display_github_file' file.name %}">{{ file.name }}</a>
+                            {% endif %}
+                        {% elif file.type == 'dir' %}
+                            <a href="{% url 'display_github_subdirectory' file.name %}">{{ file.name }}</a>
+                        {% endif %}
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
